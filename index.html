@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘 한 컵 💧</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+  <div class="left-panel">
+    <h1>오늘 한 컵 💧</h1>
+    <div class="status">
+      <span id="current">0 ml</span> / <span id="goal">2000 ml</span>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p id="percentage">0%</p>
+    <p id="successMsg" class="hidden">하루 2리터 마시기 성공~~ 🎉</p>
+    <div class="unit-select">
+      <button class="unitBtn" data-value="100">+100 ml</button>
+      <button class="unitBtn" data-value="150">+150 ml</button>
+      <button class="unitBtn" data-value="200">+200 ml</button>
+      <button class="unitBtn selected" data-value="250">+250 ml</button>
+    </div>
+    <div class="time-select">
+      <select id="amPmSelect"><option value="am">AM</option><option value="pm">PM</option></select>
+      <input id="hourInput" type="number" min="1" max="12" value="12" />
+      <input id="minuteInput" type="number" min="0" max="59" step="1" value="00" />
+    </div>
+    <button id="drinkBtn" class="primary">🥤 마셨어요!</button>
+    <button id="resetBtn" class="secondary">처음부터</button>
+    <div class="csv-controls">
+      <input type="file" id="fileInput" accept=".csv" hidden />
+      <button id="importBtn" class="secondary">CSV 가져오기</button>
+      <button id="exportBtn" class="secondary">CSV 내보내기</button>
+    </div>
+    <div id="syncStatus" class="sync-status">연결 확인 중...</div>
+  </div>
+  <div class="right-panel">
+    <h2>오늘 기록</h2>
+    <table class="record-table">
+      <thead>
+        <tr><th>날짜</th><th>시간</th><th>양(ml)</th></tr>
+      </thead>
+      <tbody id="recordTableBody"></tbody>
+    </table>
+  </div>
+</main>
+  <script src="script.js"></script>
+</body>
+</html>
